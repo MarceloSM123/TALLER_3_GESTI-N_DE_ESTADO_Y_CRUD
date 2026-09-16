@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DrawerNavigator from './src/navigators/DrawerNavigator';
 import ChestDetailScreen from './src/screens/ChestDetailScreen';
+import {RoutineProvider} from './src/context/RoutineContext'
 
 type ListaStack = {
   NavegadorDrawer: undefined;
@@ -15,7 +16,8 @@ const Stack = createNativeStackNavigator<ListaStack>();
 
 export default function App() {
   return (
-    <SafeAreaProvider>
+<RoutineProvider>
+      <SafeAreaProvider>
       <NavigationContainer>
         <StatusBar style="auto" />
         <Stack.Navigator initialRouteName="NavegadorDrawer" screenOptions={{ headerShown: false }}>
@@ -28,5 +30,6 @@ export default function App() {
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
+</RoutineProvider>
   );
 }
